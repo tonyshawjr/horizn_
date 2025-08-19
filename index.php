@@ -17,6 +17,16 @@ define('PUBLIC_ROOT', __DIR__);
 define('APP_PATH', APP_ROOT . '/app');
 define('CONFIG_PATH', APP_PATH . '/config');
 
+// Load .env file if it exists
+$envPath = APP_ROOT . '/.env';
+if (file_exists($envPath)) {
+    $env = parse_ini_file($envPath);
+    foreach ($env as $key => $value) {
+        $_ENV[$key] = $value;
+        putenv("$key=$value");
+    }
+}
+
 // Load configuration
 require_once CONFIG_PATH . '/app.php';
 require_once CONFIG_PATH . '/database.php';
@@ -145,7 +155,7 @@ if ($controller === 'track') {
 // Don't redirect if we're already on the setup page
 $current_path = $controller . '/' . $action;
 if ($current_path !== 'auth/setup' && Auth::setupRequired()) {
-    header('Location: /auth/setup');
+    header('Location: auth/setup');
     exit;
 }
 
