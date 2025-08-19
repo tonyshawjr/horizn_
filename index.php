@@ -48,14 +48,12 @@ spl_autoload_register(function ($class_name) {
     }
 });
 
-// Basic routing
-$request_uri = $_SERVER['REQUEST_URI'];
-$script_name = $_SERVER['SCRIPT_NAME'];
-$path = str_replace(dirname($script_name), '', $request_uri);
-$path = trim($path, '/');
+// Basic routing - use query string from .htaccess
+$route = $_GET['route'] ?? '';
+$route = trim($route, '/');
 
-// Parse the path
-$segments = explode('/', $path);
+// Parse the route
+$segments = $route ? explode('/', $route) : [];
 $controller = !empty($segments[0]) ? $segments[0] : 'dashboard';
 $action = !empty($segments[1]) ? $segments[1] : 'index';
 
