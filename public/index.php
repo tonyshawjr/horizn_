@@ -11,8 +11,14 @@
 session_start();
 ob_start();
 
-// Define application constants
-define('APP_ROOT', dirname(__DIR__));
+// Define application constants - works both with app beside or above public
+if (file_exists(__DIR__ . '/app')) {
+    // Hostinger subdomain setup - everything at same level
+    define('APP_ROOT', __DIR__);
+} else {
+    // Standard setup - app folder one level up
+    define('APP_ROOT', dirname(__DIR__));
+}
 define('PUBLIC_ROOT', __DIR__);
 define('APP_PATH', APP_ROOT . '/app');
 define('CONFIG_PATH', APP_PATH . '/config');
