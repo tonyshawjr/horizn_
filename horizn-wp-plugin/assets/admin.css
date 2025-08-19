@@ -1,0 +1,394 @@
+/**
+ * horizn_ Analytics Admin Styles
+ * Crypto/SaaS aesthetic for WordPress admin
+ */
+
+.horizn-admin-wrap {
+    background: #f8fafc;
+    margin: -20px -20px 0;
+    padding: 0;
+}
+
+.horizn-admin-wrap h1 {
+    display: none;
+}
+
+/* Header */
+.horizn-admin-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    margin: 0 0 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.horizn-admin-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    animation: drift 20s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes drift {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-20px) translateY(-20px); }
+}
+
+.horizn-logo h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+}
+
+.horizn-logo p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin: 5px 0 0 0;
+    position: relative;
+    z-index: 1;
+}
+
+.horizn-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-active {
+    background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+.status-inactive {
+    background: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+}
+
+/* Main Content Layout */
+.horizn-admin-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+    padding: 0 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.horizn-main-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.horizn-main-content form {
+    padding: 0;
+}
+
+/* Settings Sections */
+.horizn-main-content h2 {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #1e293b;
+    margin: 0;
+    padding: 20px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.horizn-main-content table {
+    background: white;
+    width: 100%;
+}
+
+.horizn-main-content .form-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    vertical-align: top;
+    padding: 20px 30px;
+    width: 200px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.horizn-main-content .form-table td {
+    padding: 20px 30px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.horizn-main-content .form-table input[type="text"],
+.horizn-main-content .form-table input[type="url"],
+.horizn-main-content .form-table textarea {
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.horizn-main-content .form-table input[type="text"]:focus,
+.horizn-main-content .form-table input[type="url"]:focus,
+.horizn-main-content .form-table textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.horizn-main-content .form-table input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    accent-color: #667eea;
+}
+
+.horizn-main-content .description {
+    color: #64748b;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+/* Submit Button */
+.horizn-main-content .submit {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 20px 30px;
+    margin: 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.horizn-main-content .submit .button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.3);
+}
+
+.horizn-main-content .submit .button-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px -1px rgba(102, 126, 234, 0.4);
+}
+
+/* Sidebar */
+.horizn-sidebar .horizn-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.horizn-card h3 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin: 0;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.horizn-card p {
+    margin: 16px 20px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.horizn-card p:last-child {
+    margin-bottom: 20px;
+}
+
+.horizn-card .button {
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.horizn-card .button:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.horizn-card .button-secondary {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-color: #cbd5e1;
+}
+
+/* Status Messages */
+.status-good {
+    color: #059669;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-warning {
+    color: #d97706;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-error {
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Test Results */
+#horizn-test-results {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    display: none;
+}
+
+#horizn-test-results.success {
+    background: #d1fae5;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+
+#horizn-test-results.error {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+/* Loading States */
+.button.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .horizn-admin-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px 20px;
+    }
+    
+    .horizn-admin-header {
+        padding: 30px 20px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .horizn-main-content .form-table th,
+    .horizn-main-content .form-table td {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+    }
+    
+    .horizn-main-content .form-table th {
+        background: none;
+        border-bottom: none;
+        padding-bottom: 5px;
+        font-weight: 700;
+    }
+    
+    .horizn-main-content .form-table td {
+        border-bottom: 1px solid #f1f5f9;
+        padding-top: 0;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .horizn-admin-wrap {
+        background: #0f172a;
+    }
+    
+    .horizn-main-content,
+    .horizn-card {
+        background: #1e293b;
+        color: #e2e8f0;
+    }
+    
+    .horizn-main-content h2 {
+        background: #334155;
+        color: #f8fafc;
+        border-color: #475569;
+    }
+    
+    .horizn-main-content .form-table th {
+        background: #334155;
+        color: #cbd5e1;
+        border-color: #475569;
+    }
+    
+    .horizn-main-content .form-table td {
+        border-color: #475569;
+    }
+    
+    .horizn-main-content .form-table input[type="text"],
+    .horizn-main-content .form-table input[type="url"],
+    .horizn-main-content .form-table textarea {
+        background: #334155;
+        border-color: #475569;
+        color: #e2e8f0;
+    }
+    
+    .horizn-main-content .description {
+        color: #94a3b8;
+    }
+    
+    .horizn-card p {
+        color: #cbd5e1;
+    }
+}

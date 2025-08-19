@@ -1,0 +1,106 @@
+# Copyright (C) 2025 Tony Shaw Jr
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: horizn_ Analytics 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/tonyshawjr/horizn_/issues\n"
+"POT-Creation-Date: 2025-08-19 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: horizn-analytics.php:84
+msgid "horizn_ Analytics"
+msgstr ""
+
+#: horizn-analytics.php:85
+msgid "horizn_ Analytics Settings"
+msgstr ""
+
+#: includes/class-horizn-admin.php:127
+msgid "General Settings"
+msgstr ""
+
+#: includes/class-horizn-admin.php:133
+msgid "API Endpoint"
+msgstr ""
+
+#: includes/class-horizn-admin.php:140
+msgid "Site Key"
+msgstr ""
+
+#: includes/class-horizn-admin.php:147
+msgid "Enable Tracking"
+msgstr ""
+
+#: includes/class-horizn-admin.php:155
+msgid "Privacy Settings"
+msgstr ""
+
+#: includes/class-horizn-admin.php:161
+msgid "Track Admin Users"
+msgstr ""
+
+#: includes/class-horizn-admin.php:168
+msgid "Track Logged-in Users"
+msgstr ""
+
+#: includes/class-horizn-admin.php:176
+msgid "E-commerce Settings"
+msgstr ""
+
+#: includes/class-horizn-admin.php:182
+msgid "Enable E-commerce Tracking"
+msgstr ""
+
+#: includes/class-horizn-admin.php:190
+msgid "Advanced Settings"
+msgstr ""
+
+#: includes/class-horizn-admin.php:196
+msgid "Custom Endpoints"
+msgstr ""
+
+#: includes/class-horizn-admin.php:315
+msgid "First-party, ad-blocker resistant analytics"
+msgstr ""
+
+#: includes/class-horizn-admin.php:322
+msgid "Active"
+msgstr ""
+
+#: includes/class-horizn-admin.php:325
+msgid "Not Configured"
+msgstr ""
+
+#: includes/class-horizn-admin.php:345
+msgid "Configure horizn_ Analytics to see stats."
+msgstr ""
+
+#: includes/class-horizn-admin.php:346
+msgid "Configure Now"
+msgstr ""
+
+#: includes/class-horizn-admin.php:355
+msgid "Live Visitors"
+msgstr ""
+
+#: includes/class-horizn-admin.php:360
+msgid "View Settings"
+msgstr ""
+
+#: includes/class-horizn-admin.php:362
+msgid "Test Tracking"
+msgstr ""
+
+#: includes/class-horizn-admin.php:370
+msgid "Test event sent! Check your analytics dashboard."
+msgstr ""
+
+#: includes/class-horizn-admin.php:372
+msgid "Tracking script not loaded. Check your configuration."
+msgstr ""

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{email_title}} - {{app_name}}</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #0a0a0a; 
+            color: #ffffff; 
+            line-height: 1.6; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: #111111; 
+            border: 1px solid #333333; 
+            border-radius: 16px; 
+            overflow: hidden; 
+        }
+        .header { 
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%); 
+            padding: 48px 40px; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            z-index: 1;
+        }
+        .logo { 
+            font-size: 36px; 
+            font-weight: 900; 
+            color: #ffffff; 
+            margin: 0; 
+            letter-spacing: -0.025em; 
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .tagline {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 8px;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        .content { 
+            padding: 48px 40px; 
+            background: #111111;
+        }
+        .greeting { 
+            font-size: 20px; 
+            color: #ffffff; 
+            line-height: 1.6; 
+            margin-bottom: 24px; 
+            font-weight: 600;
+        }
+        .message { 
+            font-size: 16px; 
+            color: #e5e7eb; 
+            line-height: 1.6; 
+            margin-bottom: 40px; 
+        }
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .button { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%); 
+            color: #ffffff; 
+            text-decoration: none; 
+            padding: 18px 36px; 
+            border-radius: 12px; 
+            font-weight: 600; 
+            font-size: 16px; 
+            text-align: center; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .button:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4); 
+        }
+        .security { 
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%); 
+            border: 1px solid #374151; 
+            border-radius: 12px; 
+            padding: 24px; 
+            margin: 40px 0; 
+            position: relative;
+        }
+        .security::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border-radius: 12px;
+            z-index: 1;
+        }
+        .security-content {
+            position: relative;
+            z-index: 2;
+        }
+        .security-title { 
+            font-size: 16px; 
+            font-weight: 700; 
+            color: #f59e0b; 
+            margin-bottom: 12px; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .security-icon {
+            width: 20px;
+            height: 20px;
+            background: #f59e0b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #000;
+        }
+        .security-text { 
+            font-size: 14px; 
+            color: #d1d5db; 
+            line-height: 1.6; 
+        }
+        .security-text ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .security-text li {
+            margin-bottom: 4px;
+        }
+        .link-fallback {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        .link-fallback-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        .link-fallback-url {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+            font-size: 13px;
+            color: #8b5cf6;
+            word-break: break-all;
+            background: #1e293b;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+        }
+        .footer { 
+            padding: 40px; 
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%); 
+            border-top: 1px solid #333333; 
+            text-align: center; 
+        }
+        .footer-text { 
+            font-size: 14px; 
+            color: #6b7280; 
+            margin: 0;
+            line-height: 1.6;
+        }
+        .footer-link { 
+            color: #8b5cf6; 
+            text-decoration: none; 
+            font-weight: 600;
+        }
+        .footer-link:hover { 
+            text-decoration: underline; 
+        }
+        .crypto-pattern {
+            opacity: 0.03;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #8b5cf6 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #6366f1 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        @media (max-width: 600px) {
+            .container { 
+                margin: 0; 
+                border-radius: 0; 
+                border-left: none;
+                border-right: none;
+            }
+            .content { 
+                padding: 32px 24px; 
+            }
+            .header { 
+                padding: 32px 24px; 
+            }
+            .footer {
+                padding: 32px 24px;
+            }
+            .greeting {
+                font-size: 18px;
+            }
+            .message {
+                font-size: 15px;
+            }
+            .button {
+                padding: 16px 28px;
+                font-size: 15px;
+            }
+        }
+        
+        /* Dark mode optimizations */
+        @media (prefers-color-scheme: dark) {
+            .container {
+                border-color: #404040;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="crypto-pattern"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">{{app_name}}</h1>
+            <div class="tagline">First-party analytics that respect privacy</div>
+        </div>
+        
+        <div class="content">
+            <h2 class="greeting">Hello {{user_name}},</h2>
+            
+            <p class="message">
+                {{email_message}}
+            </p>
+            
+            <div class="button-container">
+                <a href="{{magic_link}}" class="button">
+                    {{button_text}}
+                </a>
+            </div>
+            
+            <div class="security">
+                <div class="security-content">
+                    <div class="security-title">
+                        <span class="security-icon">🔒</span>
+                        Security Notice
+                    </div>
+                    <div class="security-text">
+                        <ul>
+                            <li>This link expires in {{expires_minutes}} minutes for security</li>
+                            <li>The link can only be used once</li>
+                            <li>If you didn't request this, please ignore this email</li>
+                            <li>Never share this link with anyone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="link-fallback">
+                <div class="link-fallback-title">If the button doesn't work:</div>
+                <div class="link-fallback-url">{{magic_link}}</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="footer-text">
+                Powered by <a href="{{app_url}}" class="footer-link">{{app_name}}</a><br>
+                Advanced analytics platform built for modern websites
+            </p>
+        </div>
+    </div>
+</body>
+</html>
