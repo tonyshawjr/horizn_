@@ -11,14 +11,8 @@
 session_start();
 ob_start();
 
-// Define application constants - works both with app beside or above public
-if (file_exists(__DIR__ . '/app')) {
-    // Hostinger subdomain setup - everything at same level
-    define('APP_ROOT', __DIR__);
-} else {
-    // Standard setup - app folder one level up
-    define('APP_ROOT', dirname(__DIR__));
-}
+// Define application constants - everything at same level
+define('APP_ROOT', __DIR__);
 define('PUBLIC_ROOT', __DIR__);
 define('APP_PATH', APP_ROOT . '/app');
 define('CONFIG_PATH', APP_PATH . '/config');
@@ -148,7 +142,9 @@ if ($controller === 'track') {
 }
 
 // Handle setup redirect - check if setup is required
-if ($controller !== 'auth' && Auth::setupRequired()) {
+// Don't redirect if we're already on the setup page
+$current_path = $controller . '/' . $action;
+if ($current_path !== 'auth/setup' && Auth::setupRequired()) {
     header('Location: /auth/setup');
     exit;
 }
